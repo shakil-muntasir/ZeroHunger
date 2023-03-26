@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ZeroHunger.Models.Collection>
+@{
+    ViewBag.Title = "Collections";
+}
+
+<div>
+    <a class="btn btn-outline-info" href="/Collection/Create">Create New &raquo;</a>
+
+    <h2 class="mt-2">Collections List</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Company
+            </th>
+            <th>
+                Food
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Expiry
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Food
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    @item.Quantity
+                </td>
+                <td>
+                    @if (item.Status == ZeroHunger.Models.Status.Pending)
+                    {<strong style="color: darkorange;">Pending</strong> }
+                    else if (item.Status == ZeroHunger.Models.Status.Approved)
+                    { <strong style="color: green;">Approved</strong>}
+                    else
+                    { <strong style="color: red;">Rejected</strong>}
+                </td>
+                <td>
+                    <a href="/Collection/Edit/@item.Id">Edit</a>
+                    <a style="margin-left: 4px; color: red;" href="/Collection/Delete/@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

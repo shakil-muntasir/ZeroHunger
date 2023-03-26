@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Edit Collection";
+}
+
+<h2>Edit Collection</h2>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    Company Name:  <input type="text" name="Name" class="form-control" value="@Model.Name" />
+    Food:  <input type="text" name="Food" class="form-control" value="@Model.Food" />
+    Quantity:  <input type="text" name="Quantity" class="form-control" value="@Model.Quantity" />
+    Expiry:  <input type="text" name="Expiry" class="form-control" value="@Model.Expiry" />
+    <input type="submit" value="Update" class="btn btn-success" style="margin-top: 5px;" />
+</form>
